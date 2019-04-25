@@ -1,0 +1,11 @@
+MACRO $ $ 
+INCR &ARG1 &ARG2 
+L 1, &ARG1 
+ST 2, &ARG2 
+MEND $ $ 
+
+L 1, =F'4' 
+INCR DATA1 DATA2 
+DATA1 DC F'6' 
+DATA2 DC F'8' 
+END $ $
