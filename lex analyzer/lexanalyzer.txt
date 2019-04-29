@@ -1,8 +1,0 @@
-# include <stdio.h>
-void main()
-{
-int a , b , c ;
-b = 6 ;
-c = 6 ;
-a = b + c ;
-}
