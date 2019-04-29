@@ -1,5 +1,0 @@
-if a>b
- a=a+b
-else
- a=a+c
-
