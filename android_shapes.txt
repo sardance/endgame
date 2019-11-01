@@ -1,0 +1,87 @@
+MainActivity.java code:
+
+
+
+
+
+
+package com.example.myapplication;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(new CustomView(this));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CustomView.java code:
+
+
+
+
+
+
+
+package com.example.myapplication;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.view.View;
+
+
+public class CustomView extends View {
+
+    private Rect rectangle;
+    private Paint paint;
+
+    public CustomView(Context context) {
+        super(context);
+        paint = new Paint();
+        paint.setColor(Color.BLACK);
+    }
+
+    public void drawTriangle(Canvas canvas, Paint paint, int x, int y, int width) {
+        int halfWidth = width / 2;
+        Path path = new Path();
+        path.moveTo(x, y - halfWidth); // Top
+        path.lineTo(x - halfWidth, y + halfWidth); // Bottom left
+        path.lineTo(x + halfWidth, y + halfWidth); // Bottom right
+        path.lineTo(x, y - halfWidth); // Back to Top
+        path.close();
+
+        canvas.drawPath(path, paint);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        canvas.drawRect(250,400,500,200,paint);
+        canvas.drawCircle(300,1100,100,paint);
+        drawTriangle(canvas, paint, 600, 600, 500);
+
+    }
+
+}
